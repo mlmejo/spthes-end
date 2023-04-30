@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ul.sidebar-collapse a {
+    @apply pl-9;
+}
+
+.answer-correct {
+    color: #22c55e;
+}
+
+.answer-incorrect {
+    color: #ef4444;
+}
