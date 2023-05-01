@@ -24,7 +24,7 @@ Edit the `DB_CONNECTION` variable to match your database name.
 copy .env.example .env
 ```
 
-# Migrate database 
+# Migrate database
 
 Apply database seeding (initial data) as well.
 

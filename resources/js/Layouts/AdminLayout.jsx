@@ -79,7 +79,7 @@ export default function AdminLayout({ user, children }) {
           </Sidebar.Item>
         </Sidebar>
 
-        <div className="mt-16 w-full md:ml-64">{children}</div>
+        <div className="mt-16 w-full overflow-hidden md:ml-64">{children}</div>
       </div>
     </AuthenticatedLayout>
   );

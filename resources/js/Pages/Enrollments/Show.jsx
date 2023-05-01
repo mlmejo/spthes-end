@@ -46,6 +46,7 @@ export default function Show({ auth, enrollment }) {
             Ongoing Examinations
           </h2>
           <ul className="text-md mt-2 w-full space-y-2 rounded-lg bg-white font-medium text-gray-900">
+            {console.log(enrollment)}
             {enrollment.exams.map((exam) => {
               return (
                 <li
