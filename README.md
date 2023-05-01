@@ -12,6 +12,10 @@ composer install
 npm install
 ```
 
+```
+py -m pip install -r .\open-mcr\requirements.txt
+```
+
 # Create .env file
 
 Edit the `DB_CONNECTION` variable to match your database name.
@@ -39,9 +43,13 @@ php artisan key:generate
 In separate terminals, run
 
 ```
-php artisan serve
+php artisan serve --host=0.0.0.0
 ```
 
 ```
 npm run dev
+```
+
+```
+run.bat
 ```
