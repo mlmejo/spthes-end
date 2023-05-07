@@ -9,6 +9,80 @@ export default function Authenticated({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
 
+  console.log(user);
+  let data;
+  if (user.id === 1) {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <h1 className="ml-4 font-semibold">Data</h1>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.index")}
+          active={
+            route().current("students.index") ||
+            route().current("teachers.index") ||
+            route().current("students.edit") ||
+            route().current("teachers.edit")
+          }
+        >
+          Accounts
+        </ResponsiveNavLink>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.index")}
+          active={
+            route().current("sections.index") ||
+            route().current("sections.edit")
+          }
+        >
+          Sections
+        </ResponsiveNavLink>
+        <h1 className="ml-4 font-semibold">Create</h1>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.create")}
+          active={
+            route().current("students.create") ||
+            route().current("teachers.create")
+          }
+        >
+          Accounts
+        </ResponsiveNavLink>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("sections.create")}
+          active={route().current("sections.create")}
+        >
+          Sections
+        </ResponsiveNavLink>
+      </div>
+    );
+  } else if (user.id === 3) {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("enrollments.index")}
+          active={route().current("enrollments.*")}
+        >
+          Sections
+        </ResponsiveNavLink>
+      </div>
+    );
+  } else {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("enrollments.index")}
+          active={route().current("enrollments.*")}
+        >
+          Dashboard
+        </ResponsiveNavLink>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="fixed mb-16 w-full border-b border-gray-100 bg-white">
@@ -138,6 +212,7 @@ export default function Authenticated({ user, header, children }) {
             </div>
 
             <div className="mt-3 space-y-1">
+              {data}
               <ResponsiveNavLink href={route("profile.edit")}>
                 Profile
               </ResponsiveNavLink>

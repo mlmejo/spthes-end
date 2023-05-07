@@ -1,0 +1,72 @@
+ let data;
+  if (user.roles[0].name == "admin") {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <h1 className="ml-4 font-semibold">Data</h1>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.index")}
+          active={
+            route().current("students.index") ||
+            route().current("teachers.index") ||
+            route().current("students.edit") ||
+            route().current("teachers.edit")
+          }
+        >
+          Accounts
+        </ResponsiveNavLink>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.index")}
+          active={
+            route().current("sections.index") ||
+            route().current("sections.edit")
+          }
+        >
+          Sections
+        </ResponsiveNavLink>
+        <h1 className="ml-4 font-semibold">Create</h1>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("students.create")}
+          active={
+            route().current("students.create") ||
+            route().current("teachers.create")
+          }
+        >
+          Accounts
+        </ResponsiveNavLink>
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("sections.create")}
+          active={route().current("sections.create")}
+        >
+          Sections
+        </ResponsiveNavLink>
+      </div>
+    );
+  } else if (user.roles[0].name == "teacher") {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("enrollments.index")}
+          active={route().current("enrollments.*")}
+        >
+          Sections
+        </ResponsiveNavLink>
+      </div>
+    );
+  } else {
+    data = (
+      <div className="flex flex-col md:hidden">
+        <ResponsiveNavLink
+          className="ml-3"
+          href={route("enrollments.index")}
+          active={route().current("enrollments.*")}
+        >
+          Dashboard
+        </ResponsiveNavLink>
+      </div>
+    );
+  }
