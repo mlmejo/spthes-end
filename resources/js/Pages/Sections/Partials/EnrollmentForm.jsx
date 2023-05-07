@@ -159,6 +159,8 @@ export default function EnrollmentForm() {
               Enrollment has been updated.
             </p>
           </Transition>
+
+          <PrimaryButton>Upload CSV</PrimaryButton>
         </div>
       </form>
     </section>
