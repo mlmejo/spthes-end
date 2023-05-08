@@ -9,7 +9,6 @@ export default function Authenticated({ user, header, children }) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
 
-  console.log(user);
   let data;
   if (user.id === 1) {
     data = (

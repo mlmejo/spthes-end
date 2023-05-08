@@ -2,12 +2,15 @@ import Card from "@/Components/Card";
 import Container from "@/Components/Container";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
+import Modal from "@/Components/Modal";
 import PrimaryButton from "@/Components/PrimaryButton";
+import SecondaryButton from "@/Components/SecondaryButton";
 import TextInput from "@/Components/TextInput";
 import AdminLayout from "@/Layouts/AdminLayout";
 import { Transition } from "@headlessui/react";
 import { Head, useForm } from "@inertiajs/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CsvUpload from "./Partials/CsvUpload";
 
 export default function Create({ auth }) {
   const { data, setData, post, processing, errors, reset, recentlySuccessful } =
@@ -17,6 +20,8 @@ export default function Create({ auth }) {
       password: "",
       password_confirmation: "",
     });
+
+  const [confirmingUpload, setConfirmingUpload] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -32,6 +37,16 @@ export default function Create({ auth }) {
     e.preventDefault();
 
     post(route("teachers.store"));
+  };
+
+  const confirmUpload = () => {
+    setConfirmingUpload(true);
+  };
+
+  const closeModal = () => {
+    setConfirmingUpload(false);
+
+    reset();
   };
 
   return (
@@ -142,8 +157,10 @@ export default function Create({ auth }) {
               />
             </div>
 
-            <div className="mt-4 flex items-center gap-4">
-              <PrimaryButton disabled={processing}>Create</PrimaryButton>
+            <div className="my-4 flex items-center gap-4">
+              <PrimaryButton type="submit" disabled={processing}>
+                Create
+              </PrimaryButton>
 
               <Transition
                 show={recentlySuccessful}
@@ -157,6 +174,12 @@ export default function Create({ auth }) {
               </Transition>
             </div>
           </form>
+
+          <CsvUpload
+            confirmingUpload={confirmingUpload}
+            closeModal={closeModal}
+            confirmUpload={confirmUpload}
+          />
         </Card>
       </Container>
     </AdminLayout>

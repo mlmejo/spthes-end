@@ -13,7 +13,7 @@ npm install
 ```
 
 ```
-py -m pip install -r .\open-mcr\requirements.txt
+py -m pip install -r requirements.txt
 ```
 
 # Create .env file
@@ -51,5 +51,5 @@ npm run dev
 ```
 
 ```
-run.bat
+.\run.bat
 ```

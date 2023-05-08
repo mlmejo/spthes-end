@@ -38,8 +38,8 @@ def index():
     image_file.save('input/answer-sheet.jpg')
 
     input_folder = file_handling.filter_images(
-        file_handling.list_file_paths(Path(__file__).parent / 'input'))
-    output_folder = Path(__file__).parent / 'output'
+        file_handling.list_file_paths(Path('input')))
+    output_folder = Path('output')
 
     process_input(
         input_folder,
@@ -56,7 +56,7 @@ def index():
         None,
     )
 
-    response = make_response(send_file(Path(__file__).parent / 'output' / 'results.csv'))
+    response = make_response(send_file(Path().cwd() / 'output/results.csv'))
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response

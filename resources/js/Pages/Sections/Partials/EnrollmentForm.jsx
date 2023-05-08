@@ -8,6 +8,7 @@ import { Transition } from "@headlessui/react";
 import { useForm } from "@inertiajs/react";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import CsvUploadForm from "./CsvUploadForm";
 
 export default function EnrollmentForm() {
   const section = useContext(SectionContext);
@@ -146,7 +147,7 @@ export default function EnrollmentForm() {
           <InputError message={errors.student_ids} className="mt-2" />
         </div>
 
-        <div className="mt-4 flex items-center gap-4">
+        <div className="my-4 flex items-center gap-4">
           <PrimaryButton disabled={processing}>Save</PrimaryButton>
 
           <Transition
@@ -159,10 +160,10 @@ export default function EnrollmentForm() {
               Enrollment has been updated.
             </p>
           </Transition>
-
-          <PrimaryButton>Upload CSV</PrimaryButton>
         </div>
       </form>
+
+      <CsvUploadForm section={section} formData={data} />
     </section>
   );
 }

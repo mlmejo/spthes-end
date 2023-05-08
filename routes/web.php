@@ -70,7 +70,7 @@ Route::get('/exams/{exam}/answers/{student}', [ExamAnswerController::class, 'sho
     ->middleware(['auth', 'role:student,teacher'])
     ->name('exams.answers.show');
 
-Route::post('/exams/{exam}/answers/{student}/scan', ScanAnswerSheetController::class)
+Route::post('/exams/{exam}/answers/scan', ScanAnswerSheetController::class)
     ->middleware(['auth', 'role:teacher'])
     ->name('answers.scan');
 

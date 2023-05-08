@@ -12,7 +12,7 @@ use League\Csv\Writer;
 
 class ScanAnswerSheetController extends Controller
 {
-    public function __invoke(Request $request, Exam $exam, Student $student)
+    public function __invoke(Request $request, Exam $exam)
     {
         $request->validate([
             'answer-sheet' => 'required|image',
@@ -66,7 +66,7 @@ class ScanAnswerSheetController extends Controller
 
                     if ($answer === $letters[$j]) {
                         Answer::create([
-                            'student_id' => $student->id,
+                            'student_id' => $record['Student ID'],
                             'exam_id' => $exam->id,
                             'choice_id' => $choice->id,
                         ]);

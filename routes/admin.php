@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminCsvHandlerController;
+use App\Http\Controllers\EnrollmentCsvController;
+use App\Http\Controllers\TeacherCsvController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -13,9 +14,10 @@ Route::group(
         Route::resource('teachers', TeacherController::class);
         Route::resource('sections', SectionController::class);
 
-        Route::get('import', [AdminCsvHandlerController::class, 'create'])
-            ->name('admin.csv-import');
+        Route::post('teachers/import', [TeacherCsvController::class, 'store'])
+            ->name('teachers.csv-import');
 
-        Route::post('import', [AdminCsvHandlerController::class, 'store']);
+        Route::post('sections/{section}/enrollments/import', [EnrollmentCsvController::class, 'store'])
+            ->name('sections.enrollments.csv-import');
     }
 );

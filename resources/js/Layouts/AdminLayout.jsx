@@ -69,14 +69,6 @@ export default function AdminLayout({ user, children }) {
               Sections
             </Sidebar.Item>
           </Sidebar.Collapse>
-
-          <Sidebar.Item
-            href={route("admin.csv-import")}
-            active={route().current("admin.csv-import")}
-            icon={DocumentArrowUpIcon}
-          >
-            Import CSV
-          </Sidebar.Item>
         </Sidebar>
 
         <div className="mt-16 w-full overflow-hidden md:ml-64">{children}</div>

@@ -23,8 +23,6 @@ export default function Show({ auth, exam, student, answers }) {
     post(route("answers.scan", [exam.id, student.id]));
   };
 
-  console.log(answers);
-
   return (
     <TeacherLayout user={auth.user}>
       <Head title="Exam Results" />
