@@ -43,12 +43,12 @@ export default function AcademicLevelSelect({ value, onSelect, ...rest }) {
       placeholder="Select Academic Level"
       classNames={{
         menuButton: ({ isDisabled }) =>
-          `flex mt-1   py-0.5 text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none ${
+          `flex mt-1 z-1 py-0.5 text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none ${
             isDisabled
               ? "bg-gray-200"
               : "bg-white hover:border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-500/20"
           }`,
-        menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-gray-700",
+        menu: "relative  w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-gray-700",
         listItem: ({ isSelected }) =>
           `block transition duration-200 px-2 text-sm py-2 cursor-pointer select-none truncate rounded ${
             isSelected

@@ -45,7 +45,7 @@ export default function Create({ auth }) {
       <Container>
         <Card>
           <header>
-            <div className="mb-4 border-b border-gray-200 text-center text-sm font-medium text-gray-800">
+            <div className=" mb-4 border-b border-gray-200 text-center text-sm font-medium text-gray-800">
               <ul className="-mb-px flex flex-wrap">
                 <li className="mr-2">
                   <a
@@ -78,7 +78,7 @@ export default function Create({ auth }) {
                 htmlFor="academic_level_id"
                 value="Academic Level"
               />
-
+              <h1> Hello</h1>
               <AcademicLevelSelect
                 onSelect={(option) =>
                   setData("academic_level_id", option.value)

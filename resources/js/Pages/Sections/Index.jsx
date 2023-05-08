@@ -12,7 +12,7 @@ export default function Index({ auth, sections }) {
         <Card>
           <h2 className="text-lg font-medium text-gray-900">Section List</h2>
 
-          <div className="relative max-w-2xl overflow-x-auto pt-4 sm:rounded-lg">
+          <div className="max-w-2xl overflow-x-auto pt-4 sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500">
               <thead className="bg-gray-50 text-xs uppercase text-gray-700">
                 <tr>

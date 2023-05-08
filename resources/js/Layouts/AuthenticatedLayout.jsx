@@ -58,7 +58,7 @@ export default function Authenticated({ user, header, children }) {
     );
   } else if (user.id === 3) {
     data = (
-      <div className="flex flex-col md:hidden">
+      <div className=" flex flex-col md:hidden">
         <ResponsiveNavLink
           className="ml-3"
           href={route("enrollments.index")}
@@ -70,7 +70,7 @@ export default function Authenticated({ user, header, children }) {
     );
   } else {
     data = (
-      <div className="flex flex-col md:hidden">
+      <div className=" flex flex-col md:hidden">
         <ResponsiveNavLink
           className="ml-3"
           href={route("enrollments.index")}
@@ -210,7 +210,7 @@ export default function Authenticated({ user, header, children }) {
               </div>
             </div>
 
-            <div className="mt-3 space-y-1">
+            <div className="z-10 mt-3 space-y-1">
               {data}
               <ResponsiveNavLink href={route("profile.edit")}>
                 Profile
